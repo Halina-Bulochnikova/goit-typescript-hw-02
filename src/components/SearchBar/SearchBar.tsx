@@ -3,18 +3,26 @@ import css from "./SearchBar.module.css";
 import { IoIosSearch } from "react-icons/io";
 import { toast } from "react-hot-toast";
 import * as Yup from "yup";
+import React from "react";
 
-const SearchBar = ({ onSubmit }) => {
+type Props = {
+  onSubmit: (query: string) => void;
+};
+
+const SearchBar: React.FC<Props> = ({ onSubmit }) => {
   const initialValues = {
     search: "",
   };
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (
+    values: typeof initialValues,
+    { resetForm }: { resetForm: () => void}
+  ) => {
     const query = values.search.trim();
     if (!query) {
       toast.error("Здається, ти забув сказати, що хочеш знайти...");
       return;
     }
-    
+
     onSubmit(query);
     resetForm();
   };

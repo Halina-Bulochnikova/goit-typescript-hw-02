@@ -1,5 +1,4 @@
 import css from './App.module.css';
-import React from "react";
 import { useState, useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";

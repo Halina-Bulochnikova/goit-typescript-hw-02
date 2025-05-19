@@ -1,7 +1,19 @@
 import css from "./ImageCard.module.css";
 import React from "react";
 
-const ImageCard = ({ result, openModal }) => {
+type ImageType = {
+  urls: {
+    regular: string;
+  };
+  alt_description?: string;
+};
+
+type Props = {
+  results: ImageType[];
+  openModal: (image: ImageType) => void;
+};
+
+const ImageCard: React.FC<Props> = ({ result, openModal }) => {
   return (
     <li className={css.cardItem} >
       <img onClick={() => openModal(result)}

@@ -2,7 +2,20 @@ import css from "./ImageModal.module.css";
 import Modal from "react-modal";
 import { useEffect } from "react";
 
-const ImageModal = ({ isOpen, closeModal, image }) => {
+type ImageType = {
+  urls: {
+    regular: string;
+  };
+  alt_description?: string;
+};
+
+type Props = {
+  isOpen: boolean;
+  closeModal: () => void;
+  image: ImageType | null;
+};
+
+const ImageModal: React.FC<Props> = ({ isOpen, closeModal, image }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
