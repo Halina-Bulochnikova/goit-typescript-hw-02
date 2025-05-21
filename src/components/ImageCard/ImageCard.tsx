@@ -1,15 +1,9 @@
 import css from "./ImageCard.module.css";
 import React from "react";
-
-type ImageType = {
-  urls: {
-    regular: string;
-  };
-  alt_description?: string;
-};
+import { ImageType } from "../App/App";
 
 type Props = {
-  results: ImageType[];
+  result: ImageType;
   openModal: (image: ImageType) => void;
 };
 

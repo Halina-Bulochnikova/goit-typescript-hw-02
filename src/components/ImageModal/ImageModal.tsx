@@ -1,13 +1,7 @@
 import css from "./ImageModal.module.css";
 import Modal from "react-modal";
 import { useEffect } from "react";
-
-type ImageType = {
-  urls: {
-    regular: string;
-  };
-  alt_description?: string;
-};
+import { ImageType } from "../App/App";
 
 type Props = {
   isOpen: boolean;
@@ -15,9 +9,10 @@ type Props = {
   image: ImageType | null;
 };
 
+
 const ImageModal: React.FC<Props> = ({ isOpen, closeModal, image }) => {
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeModal();
       }
@@ -30,6 +25,10 @@ const ImageModal: React.FC<Props> = ({ isOpen, closeModal, image }) => {
     };
   }, [closeModal]);
 
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -37,7 +36,7 @@ const ImageModal: React.FC<Props> = ({ isOpen, closeModal, image }) => {
       contentLabel="Image Modal"
       className={css.modalContent}
       overlayClassName={css.modalOverlay}
-      appElement={document.getElementById("root")}
+    
     >
       {image && (
         <div>

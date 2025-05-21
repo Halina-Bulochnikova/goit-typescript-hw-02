@@ -1,13 +1,8 @@
 import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
 import React from "react";
+import { ImageType } from '../App/App';
 
-type ImageType = {
-  urls: {
-    regular: string;
-  };
-  alt_description?: string;
-};
 
 type Props = {
   results: ImageType[];

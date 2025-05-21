@@ -9,33 +9,43 @@ import Loader from "..//Loader/Loader";
 
 import ImageModal from "../ImageModal/ImageModal";
 
-const App = () => {
-  const [results, setResults] = useState([]);
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+export type ImageType = {
+  id: string;
+  urls: {
+    regular: string;
+    small?: string;
+  };
+  alt_description?: string;
+  likes: number;
+};
 
-  const openModal = (image) => {
+const App = () => {
+  const [results, setResults] = useState<ImageType[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+
+  const openModal = (image: ImageType): void => {
     setIsOpen(true);
     setSelectedImage(image);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setIsOpen(false);
     setSelectedImage(null);
   };
 
-  const handleSearch = async (newQuery) => {
+  const handleSearch = async (newQuery: string): Promise<void> => {
     setQuery(newQuery);
     setPage(1);
     setResults([]);
     setIsLoading(true);
     setError(null);
     try {
-      const data = await fetchResults(newQuery, 1);
+      const data: ImageType[]= await fetchResults(newQuery, 1);
       setResults(data);
     } catch (error) {
       console.error("Я зараз все виправлю", error);

@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import css from "./SearchBar.module.css";
 import { IoIosSearch } from "react-icons/io";
 import { toast } from "react-hot-toast";
@@ -8,14 +8,17 @@ import React from "react";
 type Props = {
   onSubmit: (query: string) => void;
 };
+type FormValues = {
+  search: string;
+}
 
 const SearchBar: React.FC<Props> = ({ onSubmit }) => {
-  const initialValues = {
+  const initialValues: FormValues = {
     search: "",
   };
   const handleSubmit = (
-    values: typeof initialValues,
-    { resetForm }: { resetForm: () => void}
+    values: FormValues,
+    { resetForm }: FormikHelpers<FormValues>
   ) => {
     const query = values.search.trim();
     if (!query) {

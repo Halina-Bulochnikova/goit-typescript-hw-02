@@ -2,14 +2,16 @@
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #3f51b5;
+  background-color: #010302;
+  border-color: rgb(30, 219, 20);
   color: white;
-  border: none;
+  
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
 
 }
 .buttonLoad:hover {
-  background-color: #303f9f;
+  background-color:   rgb(30, 219, 20);
+  ;
 }

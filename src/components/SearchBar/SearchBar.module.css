@@ -1,46 +1,62 @@
 .section {
-  margin: 20px;
+  margin: 10px 0;
   width: 100%;
 }
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 16px;
-  background-color: #3c4bbd;
+  background-color: #212229;
+  box-shadow: 0 5px 5px #0ce11a;
 }
 .searchForm {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  
-
   justify-content: center;
   align-items: center;
-  
   padding: 10px;
-  background-color: #3f51b5;
+  background-color: #000310;
+  box-shadow: 0 2px 2px #0ce11a;
   border-radius: 4px;
   width: 100%;
-  max-width: 600px;
+
   margin: 0 auto;
 }
+@media screen and (min-width: 768px) {
+  .searchForm {
+    max-width: 1279px;
+  }
+  }
+  @media screen and (min-width: 1280px) {
+    .searchForm {
+      max-width: 1279px;
+    }
+  }
+
 .inputWrapper {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 600px;
+  
 }
+@media screen and (min-width: 768px) {
+  .inputWrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  }
 .searchBtn {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  color: #9e9e9e;
+  color: #625e5e;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-color: white;
+  border-color: rgb(30, 219, 20);
   background: none;
   border: none;
   cursor: pointer;
@@ -60,22 +76,26 @@
 .searchField {
   width: 100%;
   padding: 12px 45px 12px 40px;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #0ce11a;
   max-width: 400px;
-  
-  
-  
-  
+  background-color: transparent;
+}
+@media screen and (min-width: 768px) {
+  .searchField {
+    font-style: 16px;
+  }
 }
 .searchField:hover,
 .searchField:focus {
   outline: none;
   border: none;
   box-shadow: none;
-  background-color: white;
+  background-color: rgb(72, 67, 67);
 }
+
+
 .errorSearch {
   margin-top: 4px;
   color: red;
